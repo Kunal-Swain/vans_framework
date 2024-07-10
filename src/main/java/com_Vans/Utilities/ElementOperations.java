@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 public class ElementOperations {
 	WebDriver driv = WebdriverSetup.getDriver();
 	public void Clicks(String clickpath) {
-		System.out.println("this is click path value: "+clickpath);
 		WebElement elementor = driv.findElement(By.xpath(clickpath));
 		elementor.click();
 	}
