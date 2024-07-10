@@ -18,7 +18,7 @@ public class LoginPage {
 			
 	}
 	public void clickonad(String iniURL)throws Throwable {
-		
+		//check changes
 		waits.waitUntil(5, iniURL);
 		clicked.Clicks(iniURL);
 		System.out.println(iniURL);
