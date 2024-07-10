@@ -9,9 +9,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitOperation {
+	WebElement element;
 	WebDriver driv = WebdriverSetup.getDriver();
+	public void sleeper(int sec)throws Throwable {
+		sec = sec*1000;
+		System.out.println("seted second: "+sec);
+		Thread.sleep(sec);
+	}
 	public void waitUntil(int waituntil, String xpathlocator) {
 		WebDriverWait wait = new WebDriverWait(driv, Duration.ofSeconds(waituntil));
-		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathlocator)));
+		element= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathlocator)));
 	}
 }

@@ -17,7 +17,7 @@ public class LoginPage {
 		driver.get("https://www.vans.com.sg/");
 			
 	}
-	public void clickonad(String iniURL)throws Throwable {
+	public void clickonad(String iniURL) {
 		
 		waits.waitUntil(5, iniURL);
 		clicked.Clicks(iniURL);

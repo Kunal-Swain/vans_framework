@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 public class NavigatetoLogin {
 	 LoginPage initiate = new LoginPage();
 	@Given("Go to the homepage URL")
-	public void go_to_the_homepage_url() throws Throwable {
+	public void go_to_the_homepage_url() {
 	   
 	    initiate.LoggedIn();
 	    initiate.clickonad("//*[@id=\"wpn-lightbox-close-newsletter\"]");

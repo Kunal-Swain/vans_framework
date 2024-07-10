@@ -14,9 +14,5 @@ public class ElementOperations {
 		String currentURL = driv.getCurrentUrl();
 		return currentURL;
 	}
-	public void sleeper(int sec)throws Throwable {
-		sec = sec*1000;
-		System.out.println("seted second: "+sec);
-		Thread.sleep(sec);
-	}
+	
 }
