@@ -3,7 +3,6 @@ import org.testng.Assert;
 
 import com_Vans.PageObjects.LoginPage;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class NavigatetoLogin {
@@ -11,7 +10,7 @@ public class NavigatetoLogin {
 	@Given("Go to the homepage URL")
 	public void go_to_the_homepage_url() {
 	   
-	    initiate.LoggedIn();
+	    initiate.LoggedIn("https://www.vans.com.sg/");
 	    initiate.clickonad("//*[@id=\"wpn-lightbox-close-newsletter\"]");
 	}
 	@Given("Click on sign-in button")
@@ -24,9 +23,5 @@ public class NavigatetoLogin {
 		String currentURL = initiate.urlMatch();
 		String expURL = "https://www.vans.com.sg/customer/account/login/";
 		Assert.assertEquals(currentURL,expURL);
-	}
-	@Then("Pass and close the browser")
-	public void pass_and_close_the_browser() {
-		initiate.closeDriver();
 	}
 }
