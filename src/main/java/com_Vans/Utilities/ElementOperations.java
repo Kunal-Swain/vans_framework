@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ElementOperations {
 	WebDriver driv = WebdriverSetup.getDriver();
@@ -23,5 +24,10 @@ public class ElementOperations {
 	}
 	public void formfill(String sendpath, String value) {
 		driv.findElement(By.xpath(sendpath)).sendKeys(value);
+	}
+	public void dropdown_selection(String dopdownlocator, String visibletext) {
+		element = driv.findElement(By.xpath(dopdownlocator));
+		Select drop = new Select(element);
+		drop.selectByVisibleText(visibletext);
 	}
 }

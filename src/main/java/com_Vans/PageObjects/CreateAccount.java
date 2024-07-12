@@ -18,4 +18,13 @@ public class CreateAccount {
 	public void mandatoryfields(String sendpath, String value) {
 		elemoperate.formfill(sendpath, value);
 	}
+	public void mandatorydropdown(String dopdownlocator, String visibletext) {
+		elemoperate.dropdown_selection(dopdownlocator, visibletext);
+	}
+	public void date_selector() {
+		elemoperate.Clicks("//*[@id=\"form-validate\"]/fieldset[1]/div[3]/div/button");
+		elemoperate.dropdown_selection("//*[@id=\"ui-datepicker-div\"]/div[1]/div/select[1]", "Apr");
+		elemoperate.dropdown_selection("//*[@id=\"ui-datepicker-div\"]/div[1]/div/select[2]", "1938");
+		elemoperate.Clicks("//*[@id=\"ui-datepicker-div\"]/div[2]/button");
+	}
 }
