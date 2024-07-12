@@ -1,35 +1,29 @@
 package com_Vans.PageObjects;
 
-import org.openqa.selenium.WebDriver;
 import com_Vans.Utilities.ElementOperations;
 import com_Vans.Utilities.WaitOperation;
 import com_Vans.Utilities.WebdriverSetup;
 
 public class LoginPage {
 	
-	WebDriver driver = WebdriverSetup.getDriver();
-	ElementOperations sleep = new ElementOperations();
-	ElementOperations clicked = new ElementOperations();
-	ElementOperations actURL = new ElementOperations();
+	WebdriverSetup driver = new WebdriverSetup();
+	ElementOperations elemoperate = new ElementOperations();
 	WaitOperation waits = new WaitOperation();
-	public void LoggedIn() {
-		driver.manage().window().maximize();
-		driver.get("https://www.vans.com.sg/");
-			
+	public void LoggedIn(String defaultpage) {
+		driver.defaultPage(defaultpage);
 	}
-	public void clickonad(String iniURL)throws Throwable {
+	public void clickonad(String iniURL) {
 		
-		waits.waitUntil(5, iniURL);
-		clicked.Clicks(iniURL);
-		System.out.println(iniURL);
+		waits.explicitwait(5, iniURL);
+		elemoperate.Clicks(iniURL);
 	}
 	public void signin(String sign, String waitelem) {
 		
-		clicked.Clicks(sign);
-		waits.waitUntil(5, waitelem);
+		elemoperate.Clicks(sign);
+		waits.explicitwait(5, waitelem);
 	}
 	public String urlMatch() {
-		String currentURL = actURL.GetURL();
+		String currentURL = elemoperate.GetURL();
 		return currentURL;
 	}
 	
