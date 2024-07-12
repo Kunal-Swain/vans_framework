@@ -20,12 +20,16 @@ public class AccountCreation {
 		String[] email = {"//*[@id=\"email_address\"]","emailmaster@mailinator.com"};
 		String[] pass = {"//*[@id=\"password\"]","Test@123"};
 		String[] cpass = {"//*[@id=\"password-confirmation\"]","Test@123"};
+		String[] gender = {"//*[@id=\"gender\"]","Male"};
 //		String[] lname = {"",""};
 		creation.mandatoryfields(fname[0], fname[1]);
 		creation.mandatoryfields(lname[0], lname[1]);
 		creation.mandatoryfields(email[0], email[1]);
 		creation.mandatoryfields(pass[0], pass[1]);
 		creation.mandatoryfields(cpass[0], cpass[1]);
+		creation.mandatorydropdown(gender[0], gender[1]);
+		creation.date_selector();
+		
 	}
 
 	@Given("Fill other fields")
