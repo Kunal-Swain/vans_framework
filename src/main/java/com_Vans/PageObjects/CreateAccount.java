@@ -26,5 +26,13 @@ public class CreateAccount {
 		elemoperate.dropdown_selection("//*[@id=\"ui-datepicker-div\"]/div[1]/div/select[1]", "Apr");
 		elemoperate.dropdown_selection("//*[@id=\"ui-datepicker-div\"]/div[1]/div/select[2]", "1938");
 		elemoperate.Clicks("//*[@id=\"ui-datepicker-div\"]/div[2]/button");
+		elemoperate.scrolltoelem("//*[@id=\"form-validate\"]/fieldset[1]/div[8]/label/span/a");
+	}
+	public void check(String check) {
+		waits.explicitwait(5, "//*[@id=\"form-validate\"]/fieldset[1]/div[9]/label");
+		elemoperate.select(check);
+	}
+	public void uncheck(String uncheck) {
+		elemoperate.Deselect(uncheck);
 	}
 }
