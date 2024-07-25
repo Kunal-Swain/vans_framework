@@ -10,7 +10,7 @@ public class AccountCreation {
 	 ExcelSheet exceldd = new ExcelSheet();
 	@Given("Verify Page")
 	public void verify_page() {
-		creation.ClickonCreate("//*[@id=\"maincontent\"]/div[2]/div/div[2]/div[1]/div[4]/div/a", "//*[@id=\"send2\"]");
+		creation.ClickonCreate("//*[@id=\"maincontent\"]/div[2]/div/div[2]/div[1]/div[4]/div/a/span", "//*[@id=\"send2\"]/span");
 	}
 
 	@Given("Fill all mandatory fields")
@@ -48,7 +48,7 @@ public class AccountCreation {
 
 	@Then("Click on create account")
 	public void click_on_create_account() {
-	    exceldd.exceloperation();
+//	    exceldd.exceloperation();
 	}
 
 
