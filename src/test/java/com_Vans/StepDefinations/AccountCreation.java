@@ -1,55 +1,67 @@
 package com_Vans.StepDefinations;
-import com_Vans.PageObjects.CreateAccount;
-import com_Vans.Utilities.ExcelSheet;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import com_Vans.Utilities.Data;
+import com_Vans.Utilities.ElementOperations;
+import com_Vans.Utilities.WebdriverSetup;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class AccountCreation {
-	CreateAccount creation = new CreateAccount();
-	 ExcelSheet exceldd = new ExcelSheet();
+	ElementOperations elemoperate = new ElementOperations();
+	WebdriverSetup driver = new WebdriverSetup();
+	Data data = new Data();
+
 	@Given("Verify Page")
 	public void verify_page() {
-		creation.ClickonCreate("//*[@id=\"maincontent\"]/div[2]/div/div[2]/div[1]/div[4]/div/a/span", "//*[@id=\"send2\"]/span");
+		elemoperate.scrolltoelem("//*[@id=\"send2\"]/span");
+		elemoperate.Clicks("//*[@id=\"maincontent\"]/div[2]/div/div[2]/div[1]/div[4]/div/a/span");
 	}
 
 	@Given("Fill all mandatory fields")
 	public void fill_all_mandatory_fields() {
 		String visiblelabel = "//*[@id=\"maincontent\"]/div[1]/h1/span";
-		creation.applywait(visiblelabel);
-		String[] fname = {"//*[@id=\"firstname\"]","Automation 1"};
-		String[] lname = {"//*[@id=\"lastname\"]","test"};
-		String[] email = {"//*[@id=\"email_address\"]","emailmaster@mailinator.com"};
-		String[] pass = {"//*[@id=\"password\"]","Test@123"};
-		String[] cpass = {"//*[@id=\"password-confirmation\"]","Test@123"};
-		String[] gender = {"//*[@id=\"gender\"]","Male"};
-//		String[] lname = {"",""};
-		
-		creation.mandatoryfields(fname[0], fname[1]);
-		creation.mandatoryfields(lname[0], lname[1]);
-		creation.mandatoryfields(email[0], email[1]);
-		creation.mandatoryfields(pass[0], pass[1]);
-		creation.mandatoryfields(cpass[0], cpass[1]);
-		creation.mandatorydropdown(gender[0], gender[1]);
+		elemoperate.explicitwait(5, visiblelabel);
+		Sheet sheet = data.ExcelDyna();
+		for (Row row : sheet) {
+			String className = row.getCell(0).getStringCellValue();
+			if ("fill_all_mandatory_fields".equalsIgnoreCase(className)) {
+				String action = row.getCell(1).getStringCellValue();
+				String xpath = row.getCell(2).getStringCellValue();
+				String value = row.getCell(3).getStringCellValue();
+				if ("Sendkeys".equalsIgnoreCase(action)) {
+					elemoperate.formfill(xpath, value);
+				}
+				if ("Select".equalsIgnoreCase(action)) {
+					elemoperate.dropdown_selection(xpath, value);
+				}
+			}
+		}
 	}
 
 	@Given("Fill other fields")
 	public void fill_other_fields() {
-		
-		creation.date_selector();
+
+		elemoperate.Clicks("//*[@id=\"form-validate\"]/fieldset[1]/div[3]/div/button");
+		elemoperate.dropdown_selection("//*[@id=\"ui-datepicker-div\"]/div[1]/div/select[1]", "Apr");
+		elemoperate.dropdown_selection("//*[@id=\"ui-datepicker-div\"]/div[1]/div/select[2]", "1938");
+		elemoperate.Clicks("//*[@id=\"ui-datepicker-div\"]/div[2]/button");
+		elemoperate.scrolltoelem("//*[@id=\"form-validate\"]/fieldset[1]/div[8]/label/span/a");
 	}
 
 	@When("Check checkbox optional")
 	public void check_checkbox_optional() {
-	   creation.check("div.field:nth-child(15) > label:nth-child(2)");
-	   creation.check("#consent_email_checkbox_label");
-	   creation.uncheck("#remember-me-box > label:nth-child(2)");
+		elemoperate.explicitwait(5, "//*[@id=\"form-validate\"]/fieldset[1]/div[9]/label");
+		elemoperate.select("div.field:nth-child(15) > label:nth-child(2)");
+		elemoperate.select("#consent_email_checkbox_label");
+		elemoperate.Deselect("#remember-me-box > label:nth-child(2)");
 	}
 
 	@Then("Click on create account")
 	public void click_on_create_account() {
-//	    exceldd.exceloperation();
+//		driver.closeDriver();
 	}
-
 
 }
