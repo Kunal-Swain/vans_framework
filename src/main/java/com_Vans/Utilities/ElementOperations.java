@@ -20,7 +20,14 @@ public class ElementOperations {
 	public void Clicks(String clickpath) {
 		element = driv.findElement(By.xpath(clickpath));
 		element.click();
-	}// hhee
+	}
+	
+	public void conditionclick(String condition) {
+		element = driv.findElement(By.xpath(condition));
+		if(element.isDisplayed()) {
+			element.click();
+		}
+	}
 
 	public String GetURL() {
 		String currentURL = driv.getCurrentUrl();
@@ -34,11 +41,13 @@ public class ElementOperations {
 	}
 
 	public void formfill(String sendpath, String value) {
-		driv.findElement(By.xpath(sendpath)).sendKeys(value);
+		String xpaths = sendpath.replace("\\", "");
+		driv.findElement(By.xpath(xpaths)).sendKeys(value);
 	}
 
 	public void dropdown_selection(String dopdownlocator, String visibletext) {
-		element = driv.findElement(By.xpath(dopdownlocator));
+		String xpaths = dopdownlocator.replace("\\", "");
+		element = driv.findElement(By.xpath(xpaths));
 		Select drop = new Select(element);
 		drop.selectByVisibleText(visibletext);
 	}

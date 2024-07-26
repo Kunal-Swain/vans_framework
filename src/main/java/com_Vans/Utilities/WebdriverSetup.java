@@ -22,7 +22,7 @@ public class WebdriverSetup {
 		driver.get(defaultpage);
 	}
 
-	public static void closeDriver() {
+	public void closeDriver() {
 		if (driver != null) {
 			driver.quit();
 			driver = null;

@@ -16,11 +16,13 @@ public class NavigatetoLogin {
 		driver.defaultPage("https://www.vans.com.sg/");
 		elemoperate.explicitwait(5, "//*[@id=\"wpn-lightbox-close-newsletter\"]");
 		elemoperate.Clicks("//*[@id=\"wpn-lightbox-close-newsletter\"]");
+		elemoperate.conditionclick("//*[@id=\"html-body\"]/aside/div/div/div[2]/button[1]");
+		
 	}
 
 	@Given("Click on sign-in button")
 	public void click_on_sign_in_button() {
-		elemoperate.Clicks("//*[@id=\"html-body\"]/div[2]/header/div[2]/div[2]/div[1]/ul/li[2]/a");
+		elemoperate.Clicks("//*[@id=\"html-body\"]/div[3]/header/div[2]/div[2]/div[1]/ul/li[2]/a");
 		elemoperate.explicitwait(5, "//*[@id=\"login-form\"]/fieldset/div[1]/div/div/div[1]/a");
 
 	}
