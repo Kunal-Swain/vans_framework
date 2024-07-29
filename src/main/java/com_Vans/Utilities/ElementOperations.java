@@ -16,14 +16,17 @@ public class ElementOperations {
 	WebElement element;
 	WebDriverWait wait;
 	Actions act = new Actions(driv);
+	String xpaths = "";
 
 	public void Clicks(String clickpath) {
-		element = driv.findElement(By.xpath(clickpath));
+		xpaths = clickpath.replace("\\", "");
+		element = driv.findElement(By.xpath(xpaths));
 		element.click();
 	}
 	
-	public void conditionclick(String condition) {
-		element = driv.findElement(By.xpath(condition));
+	public void Conditionclick(String condition) {
+		xpaths = condition.replace("\\", "");
+		element = driv.findElement(By.xpath(xpaths));
 		if(element.isDisplayed()) {
 			element.click();
 		}
@@ -35,18 +38,19 @@ public class ElementOperations {
 	}
 
 	public void scrolltoelem(String Selempath) {
-		element = driv.findElement(By.xpath(Selempath));
+		xpaths = Selempath.replace("\\", "");
+		element = driv.findElement(By.xpath(xpaths));
 		JavascriptExecutor js = (JavascriptExecutor) driv;
 		js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
 	public void formfill(String sendpath, String value) {
-		String xpaths = sendpath.replace("\\", "");
+		xpaths = sendpath.replace("\\", "");
 		driv.findElement(By.xpath(xpaths)).sendKeys(value);
 	}
 
-	public void dropdown_selection(String dopdownlocator, String visibletext) {
-		String xpaths = dopdownlocator.replace("\\", "");
+	public void dropdown_selection(String dropdownlocator, String visibletext) {
+		String xpaths = dropdownlocator.replace("\\", "");
 		element = driv.findElement(By.xpath(xpaths));
 		Select drop = new Select(element);
 		drop.selectByVisibleText(visibletext);
@@ -78,11 +82,16 @@ public class ElementOperations {
 		System.out.println("seted second: "+sec);
 		Thread.sleep(sec);
 	}
-	public void explicitwait(int waituntil, String xpathlocator) {
+	public void explicitwait(String xpathlocator, int waituntil) {
+		xpaths = xpathlocator.replace("\\", "");
 		wait = new WebDriverWait(driv, Duration.ofSeconds(waituntil));
-		element= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpathlocator)));
+		element= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpaths)));
 	}
 	public void implicitwait(int implywait) {
 		driv.manage().timeouts().implicitlyWait(Duration.ofSeconds(implywait));
 	}
+	public String getCurrentMethodName() {
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+        return stackTraceElements[2].getMethodName();
+    }
 }
