@@ -12,7 +12,7 @@ public class WebdriverSetup {
 					"C:\\Users\\Signity\\eclipse-workspace\\Selenium_MrngBatch\\Cucumber_vans\\src\\test\\resources\\Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 		} else {
-			System.out.println("Print this msg");
+			System.out.print("");
 		}
 		return driver;
 	}
