@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class ElementOperations {
 	WebDriver driv = WebdriverSetup.getDriver();
@@ -94,4 +95,7 @@ public class ElementOperations {
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
         return stackTraceElements[2].getMethodName();
     }
+	public void asserted(String currentURL, String expURL) {
+		Assert.assertEquals(currentURL, expURL);
+	}
 }

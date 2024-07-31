@@ -44,7 +44,7 @@ public class AccountCreation {
 
 	@Then("Click on create account")
 	public void click_on_create_account() {
-//		driver.closeDriver();
+		driver.closeDriver();
 	}
 
 }
