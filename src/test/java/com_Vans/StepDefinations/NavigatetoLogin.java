@@ -30,6 +30,6 @@ public class NavigatetoLogin {
 	public void url_matched() {
 		String currentURL = elemoperate.GetURL();
 		String expURL = "https://www.vans.com.sg/customer/account/login/";
-		elemoperate.asserted(currentURL, expURL);
+		elemoperate.URLasserted(currentURL, expURL);
 	}
 }
