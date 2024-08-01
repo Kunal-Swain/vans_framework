@@ -10,6 +10,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class ElementOperations {
 	WebDriver driv = WebdriverSetup.getDriver();
@@ -17,6 +18,7 @@ public class ElementOperations {
 	WebDriverWait wait;
 	Actions act = new Actions(driv);
 	String xpaths = "";
+	Actions action = new Actions(driv);
 
 	public void Clicks(String clickpath) {
 		xpaths = clickpath.replace("\\", "");
@@ -94,4 +96,19 @@ public class ElementOperations {
         StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
         return stackTraceElements[2].getMethodName();
     }
+	public void URLasserted(String currentURL, String expURL) {
+		Assert.assertEquals(currentURL, expURL);
+	}
+	public void verifyText(String textPath, String actualText) {
+		xpaths = textPath.replace("\\", "");
+		element = driv.findElement(By.xpath(xpaths));
+		String getText = element.getText();
+		Assert.assertTrue(getText.equalsIgnoreCase(actualText));
+		
+	}
+	public void hoverOn(String hoverElem) {
+		xpaths = hoverElem.replace("\\", "");
+		element = driv.findElement(By.xpath(xpaths));
+		action.moveToElement(element).perform();
+	}
 }

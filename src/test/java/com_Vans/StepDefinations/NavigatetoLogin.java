@@ -1,6 +1,5 @@
 package com_Vans.StepDefinations;
 
-import org.testng.Assert;
 import com_Vans.Utilities.ElementOperations;
 import com_Vans.Utilities.WebdriverSetup;
 import io.cucumber.java.en.Given;
@@ -31,6 +30,6 @@ public class NavigatetoLogin {
 	public void url_matched() {
 		String currentURL = elemoperate.GetURL();
 		String expURL = "https://www.vans.com.sg/customer/account/login/";
-		Assert.assertEquals(currentURL, expURL);
+		elemoperate.URLasserted(currentURL, expURL);
 	}
 }

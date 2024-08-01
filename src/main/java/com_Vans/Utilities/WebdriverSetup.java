@@ -20,6 +20,7 @@ public class WebdriverSetup {
 	public void defaultPage(String defaultpage) {
 		driver.manage().window().maximize();
 		driver.get(defaultpage);
+		
 	}
 
 	public void closeDriver() {
