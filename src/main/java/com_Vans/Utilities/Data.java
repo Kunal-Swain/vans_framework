@@ -14,7 +14,7 @@ public class Data {
 		try {
 			FileInputStream fi = new FileInputStream(filepath);
 			Workbook wb = WorkbookFactory.create(fi);
-			sheet = wb.getSheetAt(0);
+			sheet = wb.getSheetAt(2);
 		} catch (IOException e) {
 			System.out.println("File not found");
 		}
