@@ -8,7 +8,6 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 public class Elementcheck {
 	ExtentReports extent;
     ExtentTest test;
-    int tem;
 
     public void setup() {
         ExtentSparkReporter sparkReporter = new ExtentSparkReporter("extentReport.html");
