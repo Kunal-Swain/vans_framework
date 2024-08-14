@@ -11,18 +11,23 @@ public class WebdriverSetup {
 			System.setProperty("webdriver.chrome.driver",
 					"C:\\Users\\Signity\\eclipse-workspace\\Selenium_MrngBatch\\Cucumber_vans\\src\\test\\resources\\Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
-		}
-		else {
-			System.out.println("Print this msg");
+		} else {
+			System.out.print("");
 		}
 		return driver;
 	}
 
-	public static void closeDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null;
-        }
+	public void defaultPage(String defaultpage) {
+		driver.manage().window().maximize();
+		driver.get(defaultpage);
+		
+	}
+
+	public void closeDriver() {
+		if (driver != null) {
+			driver.quit();
+			driver = null;
+		}
 	}
 
 }
