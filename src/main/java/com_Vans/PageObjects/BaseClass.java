@@ -24,6 +24,11 @@ public class BaseClass {
 					String action = row.getCell(1).getStringCellValue();
 					String xpath = row.getCell(2).getStringCellValue();
 					switch (row.getCell(3).getCellType()) {
+					case BLANK:
+						if ("Takescreenshot".equalsIgnoreCase(action)) {
+							elemoperate.Takescreenshot("");
+						}
+						break;
 					case STRING:
 						String value = row.getCell(3).getStringCellValue();
 						if ("formfill".equalsIgnoreCase(action)) {
@@ -58,6 +63,9 @@ public class BaseClass {
 						if ("hoverOn".equalsIgnoreCase(action)) {
 							elemoperate.hoverOn(xpath);
 						}
+						if ("Takescreenshot".equalsIgnoreCase(action)) {
+							elemoperate.Takescreenshot(value);
+						}
 						break;
 					case NUMERIC:
 						double value1 = row.getCell(3).getNumericCellValue();
@@ -74,6 +82,9 @@ public class BaseClass {
 						}
 						if ("verifyText".equalsIgnoreCase(action)) {
 							elemoperate.verifyText(xpath, value1 + "");
+						}
+						if ("sleeper".equalsIgnoreCase(action)) {
+							elemoperate.sleeper((int) value1);
 						}
 						break;
 					default:
