@@ -19,7 +19,7 @@ public class Elementcheck {
         extent.attachReporter(sparkReporter);
 
         extent.setSystemInfo("OS", "Windows");
-        extent.setSystemInfo("Browser", "Chrome");
+        extent.setSystemInfo("Browser", "Chrome Browser");
     }
 
     public void createTest() {
