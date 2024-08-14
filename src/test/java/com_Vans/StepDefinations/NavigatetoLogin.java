@@ -3,6 +3,7 @@ package com_Vans.StepDefinations;
 import com_Vans.Utilities.ElementOperations;
 import com_Vans.Utilities.WebdriverSetup;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class NavigatetoLogin {
@@ -31,5 +32,10 @@ public class NavigatetoLogin {
 		String currentURL = elemoperate.GetURL();
 		String expURL = "https://www.vans.com.sg/customer/account/login/";
 		elemoperate.URLasserted(currentURL, expURL);
+	}
+	@Then("Pass and close the browser")
+	public void pass_and_close_the_browser() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 }
