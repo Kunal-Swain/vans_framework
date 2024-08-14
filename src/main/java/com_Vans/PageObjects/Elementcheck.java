@@ -11,7 +11,7 @@ public class Elementcheck {
 
     public void setup() {
         ExtentSparkReporter sparkReporter = new ExtentSparkReporter("extentReport.html");
-        sparkReporter.config().setTheme(Theme.STANDARD);
+        sparkReporter.config().setTheme(Theme.DARK);
         sparkReporter.config().setDocumentTitle("Automation Test Report");
         sparkReporter.config().setReportName("Extent Report Demo");
 
