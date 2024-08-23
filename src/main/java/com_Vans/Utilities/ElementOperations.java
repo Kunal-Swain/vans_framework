@@ -127,23 +127,28 @@ public class ElementOperations {
 	}
 
 	public void Takescreenshot(String imagename) {
-			File screenshot = ((TakesScreenshot) driv).getScreenshotAs(OutputType.FILE);
-			if(imagename.isBlank() || imagename.isEmpty() || imagename.equals("")) {
-				String alpha = "abcdefghijklmnopqrstuvwxyz";
-				Random random = new Random();
-				int wordLength = 5;
-				StringBuilder word = new StringBuilder();
-				for (int i = 0; i < wordLength; i++) {
-		            char randomChar = alpha.charAt(random.nextInt(alpha.length()));
-		            word.append(randomChar);
-		        }
-				imagename = word.toString();
+		File screenshot = ((TakesScreenshot) driv).getScreenshotAs(OutputType.FILE);
+		if (imagename.isBlank() || imagename.isEmpty() || imagename.equals("")) {
+			String alpha = "abcdefghijklmnopqrstuvwxyz";
+			Random random = new Random();
+			int wordLength = 5;
+			StringBuilder word = new StringBuilder();
+			for (int i = 0; i < wordLength; i++) {
+				char randomChar = alpha.charAt(random.nextInt(alpha.length()));
+				word.append(randomChar);
 			}
-			File destination = new File("C:\\Users\\Signity\\eclipse-workspace\\Selenium_MrngBatch\\Cucumber_vans\\test-output\\Screenshots\\"+imagename+".png");
-		try {	
+			imagename = word.toString();
+		}
+		File destination = new File(
+				"C:\\Users\\Signity\\eclipse-workspace\\Selenium_MrngBatch\\Cucumber_vans\\test-output\\Screenshots\\"
+						+ imagename + ".png");
+		try {
 			FileHandler.copy(screenshot, destination);
 		} catch (IOException e) {
 			System.out.println("screenshot exception");
 		}
+	}
+	public void Myreport() {
+		
 	}
 }
