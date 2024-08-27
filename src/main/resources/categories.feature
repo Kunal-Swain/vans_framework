@@ -9,3 +9,5 @@ Feature: Check that menu and main navigation is working or not!
     Then click on Main Menu Content
     Then Redirect to main navigations
     Then Close the window
+    
+    
