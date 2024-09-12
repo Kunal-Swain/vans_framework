@@ -10,4 +10,3 @@ Feature: Check that menu and main navigation is working or not!
     Then Redirect to main navigations
     Then Close the window
     
-    

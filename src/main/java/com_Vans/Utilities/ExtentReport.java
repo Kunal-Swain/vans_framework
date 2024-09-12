@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies.LowerCaseStrategy;
 
 public class ExtentReport {
 	ExtentReports extent;
@@ -55,13 +56,27 @@ public class ExtentReport {
 	}
 
 	public static void main(String[] args) {
-		ExtentReport example = new ExtentReport();
-		example.setup("ss");
-		example.createTest();
-		example.Pass("");
-		example.Fail("");
-		example.Skip("");
-		example.flushReport();
+//		ExtentReport example = new ExtentReport();
+//		example.setup("ss");
+//		example.createTest();
+//		example.Pass("");
+//		example.Fail("");
+//		example.Skip("");
+//		example.flushReport();
+		String textcheck = "fedration %s of %s %d law ";
+		String brocode = "CHeck me";
+		String alty = textcheck.intern();
+		System.out.println(alty);
+		String str1 = new String("Hello");
+		String str2 = new String("Hello");
+
+		System.out.println(str1 == str2);  // false (different objects)
+
+		String str3 = str1.intern();
+		String str4 = str2.intern();
+
+		System.out.println(str3 == str4);
+		
 	}
 
 }
