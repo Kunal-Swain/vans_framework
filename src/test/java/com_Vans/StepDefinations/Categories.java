@@ -33,13 +33,20 @@ public class Categories {
 		run.basics(dynamic);
 	}
 
-	@Then("Redirect to main navigations")
+	@When("Redirect to main navigations")
 	public void redirect_to_main_navigations() {
 		dynamic = elemoperate.getCurrentMethodName();
 		BaseClass run = new BaseClass();
 		run.basics(dynamic);
 	}
-
+	
+	@Then("Click on each New Arrival Link")
+	public void click_on_each_New_Arrival_Link() {
+		dynamic = elemoperate.getCurrentMethodName();
+		BaseClass run = new BaseClass();
+		run.basics(dynamic);
+	}
+	
 	@Then("Close the window")
 	public void close_the_window() {
 		dynamic = elemoperate.getCurrentMethodName();

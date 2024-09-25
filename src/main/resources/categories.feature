@@ -3,10 +3,11 @@ Feature: Check that menu and main navigation is working or not!
   Shopping Cart, Favorite, Sign In, Find a Store, Help
   Along with all main catagories.
   
-  Scenario: Title of your scenario
+  Scenario: Navigation Links are working or not
     Given Go to the URL
     When Take screeshot of homepage
     Then click on Main Menu Content
-    Then Redirect to main navigations
+    When Redirect to main navigations
+    Then Click on each New Arrival Link
     Then Close the window
     
