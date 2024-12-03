@@ -16,7 +16,7 @@ public class Categories {
 	
 	@Given("Go to the URL")
 	public void go_to_the_url() {
-		driver.defaultPage("https://vanssgstg.ada-asia.my/");
+		driver.defaultPage("https://dam.vans.com/");
 	}
 
 	@When("Take screeshot of homepage")
