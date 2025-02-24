@@ -10,7 +10,7 @@ public class PropertyConfig {
 	
 	public PropertyConfig() {
 		property = new Properties();
-		String filepath = "./src/main/java/com_Vans/Utilities/configuration.properties";
+		String filepath = "./src/test/resources/Properties/configuration.properties";
 //		System.out.println(filepath);
 //		System.out.println("Working Directory = " + System.getProperty("user.dir"));
 		try (FileInputStream fileInputStream = new FileInputStream(filepath)) {
@@ -23,9 +23,4 @@ public class PropertyConfig {
 	public String getProperty(String key) {
         return property.getProperty(key);
     }
-	public static void main(String[] args) {
-		PropertyConfig config = new PropertyConfig();
-		String test = config.getProperty("Driver_Path");
-		System.out.println("your result : "+ test);
-	}
 }
