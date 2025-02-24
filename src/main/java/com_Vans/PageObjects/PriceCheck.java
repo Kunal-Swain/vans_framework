@@ -43,19 +43,19 @@ public class PriceCheck {
 		}
 		driver.manage().window().maximize();
 
-		driver.get("https://www.vans.com.my");
+		driver.get("https://Hb7n2aGN3ZOd9nfj:(~X+hZfJ(QdC{L6{@vansmystg.ada-asia.my");
 		wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-		element = wait.until(ExpectedConditions
+		/*element = wait.until(ExpectedConditions
 				.visibilityOfElementLocated(By.xpath("//div[@id = 'wpn-lightbox-close-newsletter']")));
 		element = driver.findElement(By.xpath("//div[@id = 'wpn-lightbox-close-newsletter']"));
 		if (element.isDisplayed()) {
 			element.click();
-		}
-		element = driver.findElement(
+		}*/
+		/*element = driver.findElement(
 				By.xpath("//button[@class = 'amgdprcookie-button -allow -save' and text() = 'ACCEPT ALL']"));
 		if (element.isEnabled() && element.isDisplayed()) {
 			element.click();
-		}
+		}*/
 		String filepath = "C:\\Users\\Signity\\Downloads\\TestPrice.xlsx";
 		try {
 			FileInputStream fi = new FileInputStream(filepath);

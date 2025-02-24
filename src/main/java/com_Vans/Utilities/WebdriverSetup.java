@@ -9,7 +9,7 @@ public class WebdriverSetup {
 	public static WebDriver getDriver() {
 		if (driver == null) {
 			System.setProperty("webdriver.chrome.driver",
-					"C:\\Users\\Signity\\eclipse-workspace\\Selenium_MrngBatch\\Cucumber_vans\\src\\test\\resources\\Drivers\\chromedriver.exe");
+					"./src/test/resources/Drivers/chromedriver.exe");
 			driver = new ChromeDriver();
 		} else {
 			System.out.print("");
